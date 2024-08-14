@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Portfolio {% endblock title %}
+{% block content %}
+
+      <!-- team  section -->
+      <div id="team" class="team">
+        
+         <div class="container">
+           
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2><strong class="yellow">Team</strong><br>We Have a Professional Team of Business Analysts.</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div id="team" class="carousel slide team_Carousel " data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#team" data-slide-to="0" class="active"></li>
+                        <li data-target="#team" data-slide-to="1"></li>
+                        <li data-target="#team" data-slide-to="2"></li>
+                     </ol>
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="container">
+                              <div class="carousel-caption ">
+                                 <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                       {% for team in team %}
+                                       <div id="ho_bg" class="team_img">
+                                          <img src="{{ team.image.url }}" alt="#"/>
+                                          <div class="ho_socal">
+                                             <ul class="social_icont">
+                                                <li> <a href="https://www.facebook.com/campaign/landing.php?campaign_id=11554070363&extra_1=s%7Cc%7C477437435741%7Ce%7Cfacebook%7C&placement=&creative=477437435741&keyword=facebook&partner_id=googlesem&extra_2=campaignid%3D11554070363%26adgroupid%3D112923417056%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-541132862%26loc_physical_ms%3D9075980%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gclid=Cj0KCQjwiOy1BhDCARIsADGvQnC6lpwjYJEjWGi0LeTBPpYMMHxT5w3pOAx6t-vGY06_KeXUjnTAmU0aAqpvEALw_wcB"><i class="fa fa-facebook-f"></i></a></li>
+                                                <li> <a href="https://x.com/?lang=en"><i class="fa fa-twitter"></i></a></li>
+                                                <li> <a href="https://uz.linkedin.com/">   <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                <li> <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                       {% endfor %}
+                                    </div>
+                                  
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                 
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                  
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#team" role="button" data-slide="prev">
+                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                     </a>
+                     <a class="carousel-control-next" href="#team" role="button" data-slide="next">
+                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         
+         </div>
+   
+      </div>
+      <!-- end team  section -->
+{% endblock content %}

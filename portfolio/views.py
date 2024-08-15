@@ -17,27 +17,36 @@ class AboutListView(ListView):
   context_object_name = 'about'
 
 
-
 class ContactFormView(FormView):
     template_name = "contact.html"
     form_class = ContactForm
     success_url = "/"
 
     def form_valid(self, form):
-      name = form.cleaned_data.get('name')
-      phone_number = form.cleaned_data.get('phone_number')
-      email = form.cleaned_data.get('email')
-      content = form.cleaned_data.get('content')
-      text = f"Name: {name}\nEmail: {email}\nPhone_number: {phone_number}\ntext: {content}"
-      send_message(text)
-      form.save()
-      Contact.objects.create(
-        name=name,
-        phone_number=phone_number,
-        email=email,
-        content=content
-    )
-      return super().form_valid(form)
+        name = form.cleaned_data.get('name')
+        phone_number = form.cleaned_data.get('phone_number')
+        email = form.cleaned_data.get('email')
+        content = form.cleaned_data.get('content')
+        text = f"Name: {name}\nEmail: {email}\nPhone_number: {phone_number}\nMessage: {content}"
+
+        # Xabarni botga yuborish
+        try:
+            send_message(text)
+            print(text)
+        except Exception as e:
+            messages.error(self.request, f"Xabarni yuborishda xatolik: {e}")
+            return self.form_invalid(form)
+        
+        # Ma'lumotlarni bazaga saqlash
+        Contact.objects.create(
+            name=name,
+            phone_number=phone_number,
+            email=email,
+            content=content
+        )
+
+        return super().form_valid(form)
+
 
 
 
